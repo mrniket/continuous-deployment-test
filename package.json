@@ -22,7 +22,10 @@
     "grunt-develop": "~0.4.0",
     "jasmine-node": "^1.14.5",
     "load-grunt-tasks": "~2.0.0",
+    "node-mocks-http": "^1.2.4",
     "request": "~2.51.0",
+    "superagent": "^0.21.0",
+    "supertest": "^0.15.0",
     "time-grunt": "~1.0.0"
   }
 }

@@ -1,14 +1,15 @@
-var request = require('request');
-var ip = require('ip');
+var request = require("supertest");
+var app = require("../app");
 
 describe("a simple test suite", function() {
-	it("should repond with 'Hello Niket!'", function(done) {
-		console.log(ip.address());
-		request("http://localhost" + ":3000/name/Niket", function(error, response, body) {
-			console.log(error);
-			console.log("request: " + JSON.stringify(response));
-			expect(body).toEqual("Hello Niket!\n\n");
-			done();
-		});
+	it("/name/Niket should repond with 'Hello Niket!'", function(done) {
+		request(app)
+			.get("/name/Niket")
+			.expect(200)
+			.end(function (err, response) {
+				expect(err).toBeFalsy();
+				expect(response.text).toBe("Hello Niket!\n\n");
+				done();
+			});
 	});
 });
