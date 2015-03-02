@@ -14,4 +14,9 @@ router.get('/name/:name', function(req, res) {
   // res.render('index', { title: 'Express' });
 });
 
+router.get('/name/bye/:name', function(req, res) {
+	res.send("Bye " + req.params.name + "!\n\n");
+  // res.render('index', { title: 'Express' });
+});
+
 module.exports = router;

@@ -12,4 +12,16 @@ describe("a simple test suite", function() {
 				done();
 			});
 	});
+
+	it("/name/bye/Tom should repond with 'Bye Tom!'", function(done) {
+		request(app)
+			.get("/name/bye/Tom")
+			.expect(200)
+			.end(function (err, response) {
+				expect(err).toBeFalsy();
+				expect(response.text).toBe("Bye Tom!\n\n");
+				done();
+			});
+	});
 });
+
