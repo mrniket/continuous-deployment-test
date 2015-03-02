@@ -3,6 +3,10 @@ test:
     - npm i jasmine-node -g
 deployment:
   staging:
+    branch: staging
+    heroku:
+      appname: ex7-staging
+  production:
     branch: master
     heroku:
       appname: ex7
