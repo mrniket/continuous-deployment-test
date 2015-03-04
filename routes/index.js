@@ -5,7 +5,7 @@ var router = express.Router();
 
 router.get('/', function(req, res) {
 	var name = req.
-	res.send("Hello You!\n\n");
+	res.send("Hello You!\n Our API with a parameter is at /name/:name (replace ':name' with your name)\n\n");
   // res.render('index', { title: 'Express' });
 });
 
