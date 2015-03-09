@@ -4,9 +4,13 @@ var router = express.Router();
 /* GET home page. */
 
 router.get('/', function(req, res) {
-	var name = req.
 	res.send("Hello You!\n Our API with a parameter is at /name/:name (replace ':name' with your name)\n\n");
   // res.render('index', { title: 'Express' });
+});
+
+router.get('/api', function(req, res) {
+	var name = req.query.q;
+	res.send(name);
 });
 
 router.get('/name/:name', function(req, res) {

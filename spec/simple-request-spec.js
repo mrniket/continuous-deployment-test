@@ -23,5 +23,16 @@ describe("a simple test suite", function() {
 				done();
 			});
 	});
+
+	it("/api?q=Imperial should repond with 'Imperial'", function(done) {
+		request(app)
+			.get("/api?q=Imperial")
+			.expect(200)
+			.end(function (err, response) {
+				expect(err).toBeFalsy();
+				expect(response.text).toBe("Imperial");
+				done();
+			});
+	});
 });
 
