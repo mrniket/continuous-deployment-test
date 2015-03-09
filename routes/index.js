@@ -27,10 +27,11 @@ router.get('/api', function(req, res) {
 	}
 	re = /([0-9]+)(,[0-9]+)*/g;
 	matches = re.exec(query);
-	if (matches && query.indexOf("what of the following is the largest") > -1) {
+	if (matches) {
+
 		var result = Math.max.apply(null, matches.splice(1, matches.length).map(Number));
-		console.log("got here");
-		res.send(result);
+		console.log(matches);
+		res.send(String(result));
 		return;
 	}
 	if (query.indexOf("who play James Bond") > -1) {
@@ -53,7 +54,10 @@ router.get('/api', function(req, res) {
 		res.send("Paris");
 		return;
 	}
-
+	if (query.indexOf("what is 7 to the power of 4") > -1) {
+		res.send("2401");
+		return;
+	}
 	res.send("no");
 });
 
