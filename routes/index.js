@@ -35,6 +35,7 @@ router.get('/api', function(req, res) {
 	}
 	if (query.indexOf("who play James Bond") > -1) {
 		res.send("Sean Connery");
+		return;
 	}
 
 	res.send("no");
