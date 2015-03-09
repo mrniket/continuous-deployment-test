@@ -8,13 +8,14 @@ router.get('/', function(req, res) {
   // res.render('index', { title: 'Express' });
 });
 
-router.get('/api?q=265bdbd0:%20what%20is%202%20plus%206', function(req, res) {
-	res.send('8');
-});
-
+// /api?q=265bdbd0:%20what%20is%202%20plus%206
 router.get('/api', function(req, res) {
-	var name = req.query.q;
-	res.send(name);
+	var query = req.query.q;
+	query.replace('%20', ' ');
+	var re = /.*: what is (\d+) (\S+) (\d+)/;
+	var matches = re.exec(query);
+	var result = parseInt(matches[1]) + parseInt(matches[3]);
+	res.send(String(result));
 });
 
 router.get('/name/:name', function(req, res) {

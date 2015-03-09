@@ -24,13 +24,14 @@ describe("a simple test suite", function() {
 			});
 	});
 
-	it("/api?q=Imperial should repond with 'Imperial'", function(done) {
+	
+	it("/api?q=265bdbd0:%20what%20is%202%20plus%206 should respond with 8", function(done) {
 		request(app)
-			.get("/api?q=Imperial")
+			.get("/api?q=265bdbd0:%20what%20is%202%20plus%206")
 			.expect(200)
 			.end(function (err, response) {
 				expect(err).toBeFalsy();
-				expect(response.text).toBe("Imperial");
+				expect(response.text).toBe("8");
 				done();
 			});
 	});
