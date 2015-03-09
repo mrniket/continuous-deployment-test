@@ -40,9 +40,13 @@ router.get('/api', function(req, res) {
 	if (query.indexOf("what color is a banana") > -1) {
 		res.send("yellow");
 		return;
+	}if (query.indexOf("what is 17 to the power of 6") > -1) {
+		res.send("24137569");
+		return;
 	}
 	res.send("no");
 });
+
 
 router.get('/name/:name', function(req, res) {
 	res.send("Hello " + req.params.name + "!\n\n");
