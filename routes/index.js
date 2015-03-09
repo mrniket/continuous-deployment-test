@@ -11,7 +11,7 @@ router.get('/', function(req, res) {
 
 // /api?q=265bdbd0:%20what%20is%202%20plus%206
 router.get('/api', function(req, res) {
-	unirest.get("http://cloud-vm-47-183.doc.ic.ac.uk:8080/api?q=" + req.query.q)
+	unirest.get("http://tribesproto.appspot.com?q=" + req.query.q)
 		.end(function (response) {
 			res.send(response.body);
 		});
