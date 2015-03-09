@@ -23,6 +23,7 @@ router.get('/api', function(req, res) {
 		}
 		// var result = calculator.add(parseInt(matches[1]), parseInt(matches[3]))
 		res.send(String(result));
+		return;
 	}
 	re = /([0-9]+)(,[0-9]+)*/g;
 	matches = re.exec(query);
@@ -30,8 +31,13 @@ router.get('/api', function(req, res) {
 		var result = Math.max.apply(null, matches.splice(1, matches.length).map(Number));
 		console.log("got here");
 		res.send(result);
+		return;
 	}
-	
+	if (query.indexOf("who play James Bond") > -1) {
+		res.send("Sean Connery");
+	}
+
+	res.send("no");
 });
 
 router.get('/name/:name', function(req, res) {
