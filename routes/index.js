@@ -1,6 +1,5 @@
 var express = require('express');
 var router = express.Router();
-var calculator = require('./../model/calculator');
 
 /* GET home page. */
 
@@ -16,12 +15,21 @@ router.get('/api', function(req, res) {
 	var re = /.*: what is (\d+) ([\S\s]+) (\d+)/;
 	var matches = re.exec(query);
 	if (matches) {
-		var result = parseInt(matches[1]) + parseInt(matches[3]);
+		var result = "no";
+		if (matches[2] == "plus") {
+			result = parseInt(matches[1]) + parseInt(matches[3]);
+		} else if (matches[2] == "minus") {
+			result = parseInt(matches[1]) - parseInt(matches[3]);
+		}
 		// var result = calculator.add(parseInt(matches[1]), parseInt(matches[3]))
-		// var re = /.*: which of the following numbers is the largest: (\d+), (\d+), (\d+), (\d+)/;
 		res.send(String(result));
-	} else {
-		res.send("no");
+	}
+	re = /([0-9]+)(,[0-9]+)*/g;
+	matches = re.exec(query);
+	if (matches && query.indexOf("what of the following is the largest") > -1) {
+		var result = Math.max.apply(null, matches.splice(1, matches.length).map(Number));
+		console.log("got here");
+		res.send(result);
 	}
 	
 });
