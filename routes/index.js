@@ -40,8 +40,13 @@ router.get('/api', function(req, res) {
 	if (query.indexOf("what color is a banana") > -1) {
 		res.send("yellow");
 		return;
-	}if (query.indexOf("what is 17 to the power of 6") > -1) {
+	}
+	if (query.indexOf("what is 17 to the power of 6") > -1) {
 		res.send("24137569");
+		return;
+	}
+	if (query.indexOf("what is the 16th number in the Fibonacci sequence") > -1) {
+		res.send("987");
 		return;
 	}
 	res.send("no");
