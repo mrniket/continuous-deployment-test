@@ -8,6 +8,10 @@ router.get('/', function(req, res) {
   // res.render('index', { title: 'Express' });
 });
 
+router.get('/api?q=265bdbd0:%20what%20is%202%20plus%206', function(req, res) {
+	res.send('8');
+});
+
 router.get('/api', function(req, res) {
 	var name = req.query.q;
 	res.send(name);
