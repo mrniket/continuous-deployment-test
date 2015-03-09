@@ -37,7 +37,10 @@ router.get('/api', function(req, res) {
 		res.send("Sean Connery");
 		return;
 	}
-
+	if (query.indexOf("what color is a banana") > -1) {
+		res.send("yellow");
+		return;
+	}
 	res.send("no");
 });
 
