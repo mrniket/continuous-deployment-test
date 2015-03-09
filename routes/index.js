@@ -49,6 +49,11 @@ router.get('/api', function(req, res) {
 		res.send("987");
 		return;
 	}
+	if (query.indexOf("which city is the Eiffel tower in") > -1) {
+		res.send("Paris");
+		return;
+	}
+
 	res.send("no");
 });
 
