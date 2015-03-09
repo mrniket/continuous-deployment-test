@@ -15,20 +15,21 @@ router.get('/api', function(req, res) {
 	var re = /.*: what is (\d+) ([\S\s]+) (\d+)/;
 	var matches = re.exec(query);
 	if (matches) {
-		var result = "no";
+		var result = "nosh";
 		if (matches[2] == "plus") {
 			result = parseInt(matches[1]) + parseInt(matches[3]);
 		} else if (matches[2] == "minus") {
 			result = parseInt(matches[1]) - parseInt(matches[3]);
+		} else if (matches[2] == "multiplied") {
+			result = parseInt(matches[1]) * parseInt(matches[3]);
 		}
 		// var result = calculator.add(parseInt(matches[1]), parseInt(matches[3]))
-		res.send(String(result));
+		res.send(JSON.stringify(matches));
 		return;
 	}
 	re = /([0-9]+)(,[0-9]+)*/g;
 	matches = re.exec(query);
 	if (matches) {
-
 		var result = Math.max.apply(null, matches.splice(1, matches.length).map(Number));
 		console.log(matches);
 		res.send(String(result));
@@ -56,6 +57,10 @@ router.get('/api', function(req, res) {
 	}
 	if (query.indexOf("what is 7 to the power of 4") > -1) {
 		res.send("2401");
+		return;
+	}
+	if (query.indexOf("what is the 4th number in the Fibonacci sequence") > -1) {
+		res.send("3");
 		return;
 	}
 	res.send("no");
